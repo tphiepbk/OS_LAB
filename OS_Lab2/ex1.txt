@@ -1,0 +1,6 @@
+1. Because the compilation process is divided into four steps : Pre-processing -> Compiling -> Assembling -> Linking.
+When we compile for the first time, all those four steps will be executed. When we compile again, if we do not change the source code, some steps will be skipped, for example: assembling, etc. So the time for re-compilation is always less than the time for first compilation.
+
+2. Yes, for example : Java, Python, C++, etc.
+
+3. We can use "cd" command to access to the directory which has source code to run compilation, then exit and access to the directory with another source code.
