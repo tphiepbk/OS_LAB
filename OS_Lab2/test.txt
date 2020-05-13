@@ -1,3 +1,6 @@
-thai phuc hiep
-hello
-core i5 8300h
+Hello World
+This is Lab 2
+Exercise
+Computer Science
+Ho Chi Minh City University of Technology
+Hello
