@@ -1,0 +1,2 @@
+1. Output at LINE A : "PARENT: value = 5"
+2. C.Shared memory segments 
