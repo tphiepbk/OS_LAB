@@ -1,0 +1,25 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "build lab 4",
+            "command": "/usr/bin/gcc",
+            "args": [
+                "-g",
+                "main.c",
+                "align_malloc.c",
+                "align_malloc.h",
+                "-o",
+                "main"
+            ],
+            "options": {
+                "cwd": "/usr/bin"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": "build"
+        }
+    ]
+}

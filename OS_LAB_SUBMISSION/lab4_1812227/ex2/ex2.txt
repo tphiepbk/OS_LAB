@@ -1,0 +1,12 @@
+Q : In which cases we should use aligned_malloc() instead of standard malloc() ?
+
+A : The address of a block returned by malloc() or realloc() in GNU systems is always a multiple of 8 (on 32-bit systems) or 16 (on 64-bit systems). If you need a block whose address is a multiple of a higher power of 2 than that, use aligned_alloc() instead of malloc().
+
+Q : How can we increase the size of heap in a running process ?
+
+A : Heap contains three bounds : a starting point, a maximum limit, and end point(break). The space from starting point to end point(break) is used when process is running, so we can move the break to inscrease the size of heap. That is, we use 2 system calls brk() and sbrk() to do this :
+	int brk(const void *addr) : places the break at the given address.
+	void* sbrk(intptr_t incr) : moves the break by the given increment (in bytes)
+	
+
+
