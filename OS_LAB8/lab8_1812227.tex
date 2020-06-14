@@ -1,0 +1,220 @@
+\documentclass[a4paper]{article}
+%\usepackage{vntex}
+%\usepackage[english,vietnam]{babel}
+%\usepackage[utf8]{inputenc}
+
+%\usepackage[utf8]{inputenc}
+%\usepackage[francais]{babel}
+\usepackage{a4wide,amssymb,epsfig,latexsym,multicol,array,hhline,fancyhdr}
+
+\usepackage{verbatim}
+\usepackage{amsmath}
+\usepackage{lastpage}
+\usepackage[lined,boxed,commentsnumbered]{algorithm2e}
+\usepackage{enumerate}
+\usepackage{color}
+\usepackage{graphicx}							% Standard graphics package
+\usepackage{array}
+\usepackage{tabularx, caption}
+\usepackage{multirow}
+\usepackage{multicol}
+\usepackage{rotating}
+\usepackage{graphics}
+\usepackage{geometry}
+\usepackage{setspace}
+\usepackage{epsfig}
+\usepackage{tikz}
+\usepackage{ltablex}
+\usepackage{enumitem}
+\usetikzlibrary{arrows,snakes,backgrounds}
+\usepackage{hyperref}
+\usepackage{color, colortbl}
+\hypersetup{urlcolor=blue,linkcolor=black,citecolor=black,colorlinks=true} 
+%\usepackage{pstcol} 								% PSTricks with the standard color package
+
+
+%\usepackage{fancyhdr}
+\setlength{\headheight}{40pt}
+\pagestyle{fancy}
+\fancyhead{} % clear all header fields
+\fancyhead[L]{
+ \begin{tabular}{rl}
+    \begin{picture}(25,15)(0,0)
+    \put(0,-8){\includegraphics[width=8mm, height=8mm]{hcmut.png}}
+    %\put(0,-8){\epsfig{width=10mm,figure=hcmut.eps}}
+   \end{picture}&
+	%\includegraphics[width=8mm, height=8mm]{hcmut.png} & %
+	\begin{tabular}{l}
+		\textbf{\bf \ttfamily Ho Chi Minh University of Technology}\\
+		\textbf{\bf \ttfamily Faculty of Computer Science and Engineering}
+	\end{tabular} 	
+ \end{tabular}
+}
+\fancyhead[R]{
+	\begin{tabular}{l}
+		\tiny \bf \\
+		\tiny \bf 
+	\end{tabular}  }
+\fancyfoot{} % clear all footer fields
+\fancyfoot[L]{\scriptsize \ttfamily Operating System Lab}
+\fancyfoot[R]{\scriptsize \ttfamily Page {\thepage}/\pageref{LastPage}}
+\renewcommand{\headrulewidth}{0.3pt}
+\renewcommand{\footrulewidth}{0.3pt}
+
+
+%%%
+\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{3}
+\makeatletter
+\newcounter {subsubsubsection}[subsubsection]
+\renewcommand\thesubsubsubsection{\thesubsubsection .\@alph\c@subsubsubsection}
+\newcommand\subsubsubsection{\@startsection{subsubsubsection}{4}{\z@}%
+                                     {-3.25ex\@plus -1ex \@minus -.2ex}%
+                                     {1.5ex \@plus .2ex}%
+                                     {\normalfont\normalsize\bfseries}}
+\newcommand*\l@subsubsubsection{\@dottedtocline{3}{10.0em}{4.1em}}
+\newcommand*{\subsubsubsectionmark}[1]{}
+\makeatother
+
+\definecolor{Gray}{gray}{0.9}
+
+\begin{document}
+
+\begin{titlepage}
+\begin{center}
+HO CHI MINH UNIVERSITY OF TECHNOLOGY \\
+FACULTY OF COMPUTER SCIENCE AND ENGINEERING 
+\end{center}
+
+\vspace{1cm}
+
+\begin{figure}[h!]
+\begin{center}
+\includegraphics[width=3cm]{hcmut.png}
+\end{center}
+\end{figure}
+
+\vspace{1cm}
+
+
+\begin{center}
+\begin{tabular}{c}
+\multicolumn{1}{c}{\textbf{{\Large OPERATING SYSTEM LAB (CO2018)}}}\\
+~~\\
+\hline
+\\
+\textbf{{\Huge LAB 8 : MEMORY ALLOCATION}}\\
+%\textbf{{\Large (Submission 1)}}\\
+\\
+\hline
+\end{tabular}
+\end{center}
+
+\vspace{3cm}
+
+\begin{table}[h]
+\begin{tabular}{rrl}
+\hspace{5 cm} & Teacher: & Tran Truong Tuan Phat\\
+& Student: & Thai Phuc Hiep - 1812227 \\
+\end{tabular}
+\end{table}
+
+\vspace{4.7cm}
+
+\begin{center}
+{\footnotesize HO CHI MINH CITY, June 2020}
+\end{center}
+\end{titlepage}
+
+
+%\thispagestyle{empty}
+
+\newpage
+\tableofcontents
+\newpage
+
+\section{PROBLEM 1 :}
+
+\subsection{First-Fit algorithm}
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+Process Number & Process Size & Block Number & Block Size\\
+\hline
+1 & 115	& 1 & 300\\
+\hline
+2 & 500	& 2 & 600\\
+\hline
+3 & 358	& 5 & 750\\
+\hline
+4 & 200 & 3 & 350\\
+\hline
+5 & 375 & 5 & 392 (initial 750)\\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection{Best-Fit algorithm}
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+Process Number & Process Size & Block Number & Block Size\\
+\hline
+1 & 115	& 6 & 125\\
+\hline
+2 & 500 & 2 & 600\\
+\hline
+3 & 358	& 5 & 750\\
+\hline
+4 & 200	& 4 & 200\\
+\hline
+5 & 375	& 5 & 392 (initial 750)\\
+\hline
+\end{tabular}
+\end{center}
+
+\subsection{Worst-Fit algorithm}
+\begin{center}
+\begin{tabular}{|c|c|c|c|}
+\hline
+Process Number & Process Size & Block Number & Block Size\\
+\hline
+1 & 115	& 5 & 750\\
+\hline
+2 & 500	& 5 & 635 (intial 750)\\
+\hline
+3 & 358	& 2 & 600\\
+\hline
+4 & 200	& 3 & 350\\
+\hline
+5 & 375	& Not Allocated (must wait) &\\
+\hline
+\end{tabular}
+\end{center}
+\vspace{0.3cm}
+Ranking :
+\begin{itemize}
+\item Only Worst-Fit does not allow a request to be satisfied.
+\item Best-Fit is most efficient as it leaves the largest holes after allocation.
+\item However, Best-Fit runs at time O(n) and First-Fit runs in constant time O(1).
+\end{itemize}
+
+\section{PROBLEM 2 :}
+\textbf{First-Fit Algorithm:} \\
+\\
+\textit{Advantages:} Fastest algorithm because it searches as little as possible. \\
+\textit{Disadvantages:} The remaining unused memory areas left after allocation become waste if it is too smaller. Thus request for larger memory requirement cannot be accomplished. \\
+\\
+\textbf{Best-Fit Algorithm:} \\
+\\
+\textit{Advantages:} Memory utilization is much better than first fit as it searches the smallest free partition first available. \\
+\textit{Disadvantages:} It is slower and may even tend to fill up memory with tiny useless holes. \\
+\\
+\textbf{Worst-Fit Algorithm:} \\
+\\
+\textit{Advantages:} Reduces the rate of production of small gaps. \\
+\textit{Disadvantages:} If a process requiring larger memory arrives at a later stage then it cannot be accommodated as the largest hole is already split and occupied. \\
+
+
+\end{document}
+
